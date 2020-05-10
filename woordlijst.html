@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script src="FrontEnd.js" rel="scriptsheet" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="lijstWoorden">
+
+        </div>
+    </body>
+    <script>
+        (async() => {
+            woordenArray = await getWoordenlijst();
+            for(var a=0; a<woordenArray.length; a++) {
+                document.getElementById("lijstWoorden").innerHTML += woordenArray[a].primaryLanguage + "&nbsp".repeat(16) + woordenArray[a].targetLanguage + "<br>";
+            }
+        })()
+    </script>
+</html>
+
