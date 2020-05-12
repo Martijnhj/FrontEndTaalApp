@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <link href="TaalApp.css" rel="stylesheet" type="text/css">		
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">		
+		<script src="TaalApp.js" rel="scriptsheet" type="text/javascript"></script>
+        
+
+
+    </head>
+    <body>
+        
+
+        <nav class="navbar navbar-expand-sm bg-dark fixed-top navbar-dark">
+            <a class="navbar-brand" href="TaalPagina.html">Taal Home</a>
+			<a class="navbar-brand" id="taalTitel" href="CoursePagina.html"></a>
+            <a class="navbar-brand" id="courseTitel" href="LesPagina.html"></a>
+            <div style="cursor:pointer">
+                <h1 class="text-light" id="lessonName" onclick="woordenLijstPagina()"></h1>
+            </div>
+        </nav>
+
+        <br><br><br><br>
+
+
+
+        <div id="SelectedWords" class="d-none">
+        
+        </div>
+
+        <div id="testBlok">
+            <div id="beginWoord">
+                <h1 id="beginWoordMakeUp"></h1>
+            </div>
+            <hr>
+            <div id="vertaling">
+                <h1 id="vertalingMakeUp"></h1>
+            </div>
+        </div>
+        
+        <br>
+
+        <div id="buttonBlock">
+            <button class="btn btn-outline-dark" id="vertalingButton" onclick="showTranslation()" style="margin-left:47.5%">See Translation</button>
+            
+            <div id="checkingButtons">
+                <button class="btn btn-outline-success" onclick="goNext()">Correrct</button>
+                <button class="btn btn-outline-danger" onclick="foutVertaald();">Wrong</button>
+            </div>
+        </div>
+
+    </body>
+
+    <script>
+        sessionStorage.setItem("testLocation", 0); //nu nog elke keer als reset reset de test
+        (async () => {  
+            window.woordenArray = await getWoordenlijst();
+
+            for(;woordenArray.length>5;) {
+                var spliceableContent = Math.floor(Math.random()*Math.floor(woordenArray.length));
+                console.log(spliceableContent);
+                woordenArray.splice(spliceableContent,1);
+            } //5 random woorden binnen 
+            ///splice
+            leerLijst();
+            leerLijstOefenen(sessionStorage.getItem("testLocation"));
+        })();//save once when window opens, never load again
+        assignLessonName();
+
+        function goToLessonWoordenPage() {
+            window.open("testinglocalstorage.html", "_parent");
+        }
+
+        async function assignLessonName() {
+			await getSpecificLes();
+			document.getElementById("taalTitel").innerHTML = sessionStorage.getItem("taalName");
+			document.getElementById("courseTitel").innerHTML = sessionStorage.getItem("courseName");
+			document.getElementById("lessonName").innerHTML = sessionStorage.getItem("lessonName");
+			//sessionStorage.removeItem("lessonName"); 
+		}
+
+    </script>
+</html>

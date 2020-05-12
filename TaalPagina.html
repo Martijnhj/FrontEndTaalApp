@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link href="TaalApp.css" rel="stylesheet" type="text/css">	
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">			
+        <script src="TaalApp.js" rel="scriptsheet" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <h1 class="navbar-brand" href="#">Taal Home</h1>
+        </nav>
+
+
+        <div class="d-block text-center">
+            <div id="taalSelectBlock">
+
+            </div>
+        </div>
+
+        <div class="container text-center">
+            <br><br>
+            <input id="taalToevoegen" type="text" placeholder="Add Taal">
+            <button class="btn btn-outline-success" onclick="addTaal()">Add Taal</button>
+            <br>
+
+        </div>
+
+    </body>
+    <script>getTaalList();</script>
+</html>
