@@ -392,7 +392,7 @@ function placeLessonSelectButton(id, naam) {
 	lessonButton.className="selectorButton btn btn-outline-dark";;
     lessonButton.onclick = function() {
 		sessionStorage.setItem("selectedLesson", id);
-    	window.open("testinglocalstorage.html", "_parent")
+    	window.open("LesInhoud.html", "_parent")
     }
     lessenLijst.appendChild(lessonButton);
 }
@@ -549,5 +549,5 @@ function lessonSelectionPage() {
 }
 
 function woordenLijstPage() {
-	window.open("testinglocalstorage.html", "_parent");
+	window.open("LesInhoud.html", "_parent");
 }
